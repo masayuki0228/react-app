@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
 import { Footer } from "../components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,7 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Main page="index" />
+      <Main page="index">
+        <Link href="/about">
+          <a className={styles.click}>押してね</a>
+        </Link>
+      </Main>
       <Footer />
     </div>
   );

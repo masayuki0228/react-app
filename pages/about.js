@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Main page="about" />
+      <Main page="about">プログラミングを始めたよ！</Main>
       <Footer />
     </div>
   );

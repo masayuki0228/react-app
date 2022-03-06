@@ -5,3 +5,9 @@
   justify-content: center;
   align-items: center; */
 }
+
+.click:hover,
+.click:focus,
+.click:active {
+  color: #0070f3;
+}
