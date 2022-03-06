@@ -12,6 +12,14 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
+      <a
+        href="/about"
+        // onClick={function () {
+        //   alert(123);
+        // }}
+      >
+        ボタン
+      </a>
       <Main page="index">
         {/* passHref is missing. よく分かってないがこのページの言う通りにしたら治った → https://nextjs.org/docs/messages/link-passhref */}
         <Link href="/about" passHref>
