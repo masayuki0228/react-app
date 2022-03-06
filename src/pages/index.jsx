@@ -13,8 +13,9 @@ export default function Home() {
       </Head>
       <Header />
       <Main page="index">
-        <Link href="/about">
-          <a className={styles.click}>押してね</a>
+        {/* passHref is missing. よく分かってないがこのページの言う通りにしたら治った → https://nextjs.org/docs/messages/link-passhref */}
+        <Link href="/about" passHref>
+          <button className={styles.click}>押してね</button>
         </Link>
       </Main>
       <Footer />
