@@ -4,12 +4,22 @@ import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import Link from "next/link";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
+
+const handleClick = (e) => {
+  console.log(e.target);
+  e.preventDefault();
+};
 
 export default function Home() {
-  const handleClick = useCallback((e) => {
-    console.log(e.target);
-    e.preventDefault();
+  useEffect(() => {
+    console.log("マウント時");
+    document.body.style.backgroundColor = "lightblue";
+
+    return () => {
+      console.log("アンマウント時");
+      document.body.style.backgroundColor = "";
+    };
   }, []);
 
   return (
@@ -22,13 +32,7 @@ export default function Home() {
         <a onClick={handleClick}>ボタン</a>
       </Link>
       {/* <Link>でルーティングするアンカー要素をラップするとよい! */}
-      <Main page="index">
-        {/* passHref is missing. よく分かってないがこのページの言う通りにしたら治った → https://nextjs.org/docs/messages/link-passhref */}
-        {/* 追記: aタグの機能を持ったカスタムコンポーネントを使う場合に、passHrefを記述する。 */}
-        <Link href="/about" passHref>
-          <button className={styles.click}>押してね</button>
-        </Link>
-      </Main>
+      <Main page="index" />
       <Footer />
     </div>
   );
