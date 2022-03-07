@@ -4,13 +4,13 @@ import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import Link from "next/link";
-import { useCallback } from "react/cjs/react.development";
-// import { useCallback } from "react/cjs/react.production.min"; ⇦こっちは駄目
+import { useCallback } from "react";
 
 export default function Home() {
   const handleClick = useCallback((e) => {
     console.log(e.target);
     e.preventDefault();
+
   }, []);
 
   return (
@@ -19,9 +19,9 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <Link href="/about" onClick={handleClick}>
+      <a href="/about" onClick={handleClick}>
         ボタン
-      </Link>
+      </a>
       <Main page="index">
         {/* passHref is missing. よく分かってないがこのページの言う通りにしたら治った → https://nextjs.org/docs/messages/link-passhref */}
         {/* 追記: aタグの機能を持ったカスタムコンポーネントを使う場合に、passHrefを記述する。 */}
