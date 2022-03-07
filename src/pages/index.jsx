@@ -10,7 +10,6 @@ export default function Home() {
   const handleClick = useCallback((e) => {
     console.log(e.target);
     e.preventDefault();
-
   }, []);
 
   return (
@@ -19,9 +18,10 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      <a href="/about" onClick={handleClick}>
-        ボタン
-      </a>
+      <Link href="/about">
+        <a onClick={handleClick}>ボタン</a>
+      </Link>
+      {/* <Link>でルーティングするアンカー要素をラップするとよい! */}
       <Main page="index">
         {/* passHref is missing. よく分かってないがこのページの言う通りにしたら治った → https://nextjs.org/docs/messages/link-passhref */}
         {/* 追記: aタグの機能を持ったカスタムコンポーネントを使う場合に、passHrefを記述する。 */}
