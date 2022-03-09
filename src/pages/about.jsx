@@ -21,16 +21,16 @@ export default function About(props) {
         <title>About Page</title>
       </Head>
       <Header />
-      {/* {isShow ? <h1>{count}</h1> : null} */}
+      {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={handleAdd}>追加</button>
-      {/* <ul>
+      <ul>
         {array.map((item) => {
           return <li key={item}>{item} </li>;
         })}
-      </ul> */}
+      </ul>
       <Main page="about">プログラミングを始めたよ！</Main>
       <Footer />
     </div>
