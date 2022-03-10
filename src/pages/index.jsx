@@ -18,7 +18,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Index Page</title>
+        <title>廣澤 React学習</title>
       </Head>
       <Header />
       {isShow ? <h1>{count}</h1> : null}
