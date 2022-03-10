@@ -31,7 +31,7 @@ export default function About(props) {
           return <li key={item}>{item} </li>;
         })}
       </ul>
-      <Main page="about">プログラミングを始めたよ！</Main>
+      <Main page="about" />
       <Footer />
     </div>
   );
