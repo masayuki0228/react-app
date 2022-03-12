@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "src/components/Header/Header.module.css";
 import Link from "next/link";
 

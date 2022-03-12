@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "src/components/Links/Links.module.css";
 
 export const Links = (props) => {

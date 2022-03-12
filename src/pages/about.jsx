@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
