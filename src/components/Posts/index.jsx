@@ -1,12 +1,34 @@
 import React from "react";
-import { useState, useCallback, useEffect } from "react";
+import { useEffect, useCallback, useReducer } from "react";
+
+const initialState = {
+  data: [],
+  loading: true,
+  error: null,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "end":
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+      };
+    case "error":
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    default: {
+      throw new Error("no such action type!");
+    }
+  }
+};
 
 export const Posts = () => {
-  const [state, setState] = useState({
-    data: [],
-    loading: true,
-    error: null,
-  });
+  const [state, diapatch] = useReducer(reducer, initialState);
 
   const getPosts = useCallback(async () => {
     try {
@@ -15,32 +37,15 @@ export const Posts = () => {
         throw new Error("エラーが発生したため、データの取得に失敗しました。");
       }
       const json = await res.json();
-      setState((prevState) => {
-        return {
-          ...prevState,
-          data: json,
-          loading: false,
-        };
-      });
+      diapatch({ type: "end", data: json });
     } catch (error) {
-      setState((prevState) => {
-        return {
-          ...prevState,
-          loading: false,
-          error,
-        };
-      });
+      diapatch({ type: "error", error });
     }
   }, []);
 
   useEffect(() => {
     getPosts();
   }, [getPosts]);
-
-  console.log("foo");
-
-  // ifが通ると、それ以降は全て表示されなくなる。
-  // なので、コンポーネントを作って親と分ける必要がある。
 
   if (state.loading) {
     return <div>ローディング中</div>;
@@ -62,6 +67,9 @@ export const Posts = () => {
     </ol>
   );
 };
+
+// ifが通ると、それ以降は全て表示されなくなる。
+// なので、コンポーネントを作って親と分ける必要がある。
 
 /*
  ...prevStateは、前回のオブジェクトを展開している
