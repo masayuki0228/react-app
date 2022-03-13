@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>廣澤 React学習</title>
+        <title>Index Page</title>
       </Head>
       <Header />
       <Posts />
