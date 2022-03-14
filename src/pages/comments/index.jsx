@@ -1,18 +1,18 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "src/components/Header";
-import { Posts as PostsComponent } from "src/components/Posts";
+import { Comments as CommentsComponent } from "src/components/Comments";
 
-const Posts = () => {
+const Comments = () => {
   return (
     <div>
       <Head>
-        <title>Posts Page</title>
+        <title>Comments Page</title>
       </Head>
       <Header />
-      <PostsComponent />
+      <CommentsComponent />
     </div>
   );
 };
 
-export default Posts;
+export default Comments;

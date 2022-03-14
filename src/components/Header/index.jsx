@@ -5,6 +5,8 @@ import Link from "next/link";
 const NAV_ITEMS = [
   { href: "/", label: "Index" },
   { href: "/posts", label: "Posts" },
+  { href: "/users", label: "Users" },
+  { href: "/comments", label: "Comments" },
 ];
 
 export const Header = () => {
