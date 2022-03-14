@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { useUsers } from "src/hooks/useUsers";
+import { useUsers } from "src/hooks/useFetchArray";
 
 export const Users = () => {
   const { data, error, isLoading, isEnpty } = useUsers();

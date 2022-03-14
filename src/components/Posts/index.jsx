@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { usePosts } from "src/hooks/usePosts";
+import { usePosts } from "src/hooks/useFetchArray";
 
 export const Posts = () => {
   const { data, error, isLoading, isEnpty } = usePosts();
