@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useUser } from "src/hooks/useUser";
+import { PostsByUserId } from "src/components/Posts/PostsByUserId";
 
 export const User = () => {
   const { data, error, isLoading } = useUser();
@@ -18,6 +19,7 @@ export const User = () => {
         <title>{data.name}</title>
       </Head>
       <h1>{data.name}</h1>
+      <h2>詳細</h2>
       <ul>
         <li>{data.email}</li>
         <li>{data.username}</li>
@@ -26,6 +28,8 @@ export const User = () => {
         <li>{data.website}</li>
         <li>{data.company.name}</li>
       </ul>
+      <h2>投稿一覧</h2>
+      <PostsByUserId id={data.id}/>
     </div>
   );
 };
