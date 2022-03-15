@@ -1,15 +1,11 @@
 import React from "react";
-import useSWR from "swr";
-import { fetcher } from "src/utils/fetcher";
 import Link from "next/link";
+import { usePost } from "src/hooks/usePost";
 
 export const PostByPostId = (props) => {
-  const { data, error } = useSWR(
-    props.id ? `https://jsonplaceholder.typicode.com/posts/${props.id}` : null,
-    fetcher
-  );
+  const { data, error, isLoading } = usePost(props.id);
 
-  if (!data && !error) {
+  if (isLoading) {
     return <div>ローディング中</div>;
   }
 
