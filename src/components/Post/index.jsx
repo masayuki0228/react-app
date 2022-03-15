@@ -17,10 +17,10 @@ export const Post = () => {
   return (
     <div>
       <Head>
-        <title>{data?.title}</title>
+        <title>{data.title}</title>
       </Head>
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
+      <h1>{data.title}</h1>
+      <p>{data.body}</p>
       <UserByUserId id={data.userId}/>
       <CommentsByPostsId id={data.id}/>
     </div>
