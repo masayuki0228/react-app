@@ -1,9 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import { usePost } from "src/hooks/usePost";
+import { CommentsByPostsId } from "src/components/Comments/CommentsByPostId";
+import { UserByUserId } from "src/components/User/UserByUserId";
 
 export const Post = () => {
-  const { post, user, error, isLoading } = usePost();
+  const { data, error, isLoading } = usePost();
   if (isLoading) {
     return <div>ローディング中</div>;
   }
@@ -15,11 +17,12 @@ export const Post = () => {
   return (
     <div>
       <Head>
-        <title>{post?.title}</title>
+        <title>{data?.title}</title>
       </Head>
-      <h1>{post?.title}</h1>
-      <p>{post?.body}</p>
-      {user?.name ? <div>Created by {user.name}</div> : null}
+      <h1>{data?.title}</h1>
+      <p>{data?.body}</p>
+      <UserByUserId id={data.userId}/>
+      <CommentsByPostsId id={data.id}/>
     </div>
   );
 };
