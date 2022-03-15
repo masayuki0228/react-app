@@ -1,6 +1,5 @@
 import React from "react";
-import styles from "src/components/Layout/Layout.module.css";
 
 export const Layout = (props) => {
-  return <div className={styles.container}>{props.children}</div>;
+  return <div className="flex flex-col items-center mx-auto px-2 min-h-screen max-w-2xl">{props.children}</div>;
 };
