@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { API_URL } from "src/utils/const";
 import { fetcher } from "src/utils/fetcher";
 import useSWR from "swr";
 
@@ -7,7 +8,7 @@ export const useComment = () => {
 
   const { data, error } = useSWR(
     router.query.id
-      ? `https://jsonplaceholder.typicode.com/comments/${router.query.id}`
+      ? `${API_URL}/comments/${router.query.id}`
       : null,
     fetcher
   );
