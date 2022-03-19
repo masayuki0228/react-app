@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useComment } from "src/hooks/useComment";
-import { PostByPostId } from "src/components/Post/PostByPostId";
+import { PostTitleByPostId } from "src/components/Post/PostTitleByPostId";
 
 export const Comment = () => {
   const { data, error, isLoading } = useComment();
@@ -25,7 +25,7 @@ export const Comment = () => {
 
       <h2 className="font-bold text-xl mt-10">元の記事</h2>
       <div className="mt-2">
-        <PostByPostId id={data.postId} />
+        <PostTitleByPostId id={data.postId} />
       </div>
     </div>
   );
