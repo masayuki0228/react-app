@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "src/components/Header";
-import { User } from "src/components/User";
+import { UserDetail } from "src/components/User/UserDetail";
 import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
 
@@ -30,7 +30,7 @@ const UsersId = (props) => {
   return (
     <SWRConfig value={{ fallback }}>
       <Header />
-      <User />
+      <UserDetail />
     </SWRConfig>
   );
 };
