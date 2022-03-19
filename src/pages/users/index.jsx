@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "src/components/Header";
-import { Users as UsersComponent } from "src/components/Users";
 import { SWRConfig } from "swr";
 import { API_URL } from "src/utils/const";
+import { UserList } from "src/components/User/UserList";
 
 export const getServerSideProps = async () => {
   const USERS＿API_URL = `${API_URL}/users`;
@@ -28,7 +28,7 @@ const Users = (props) => {
       </Head>
       <SWRConfig value={{ fallback }}>
         <Header />
-        <UsersComponent />
+        <UserList />
       </SWRConfig>
     </div>
   );
