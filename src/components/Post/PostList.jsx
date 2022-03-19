@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import { usePosts } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
-export const Posts = () => {
-  const { data, error, isLoading, isEnpty } = usePosts();
+export const PostList = () => {
+  const { data, error, isLoading, isEnpty } = useFetchArray(`${API_URL}/posts`);
   if (isLoading) {
     return <div>ローディング中</div>;
   }
@@ -23,8 +24,12 @@ export const Posts = () => {
           <li key={post.id}>
             <Link href={`/posts/${post.id}`}>
               <a className="group">
-                <h1 className="text-xl font-bold group-hover:text-blue-400">{post.title}</h1>
-                <p className="text-lg text-gray-500 group-hover:text-blue-400" >{post.body}</p>
+                <h1 className="text-xl font-bold group-hover:text-blue-400">
+                  {post.title}
+                </h1>
+                <p className="text-lg text-gray-500 group-hover:text-blue-400">
+                  {post.body}
+                </p>
               </a>
             </Link>
           </li>
