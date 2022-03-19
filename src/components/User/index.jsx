@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useUser } from "src/hooks/useUser";
-import { PostsByUserId } from "src/components/Posts/PostsByUserId";
+import { PostListByUserId } from "src/components/Post/PostListByUserId";
 
 export const User = () => {
   const { data, error, isLoading } = useUser();
@@ -30,7 +30,7 @@ export const User = () => {
       </ul>
       <h2 className="font-bold text-xl mt-10">投稿一覧</h2>
       <div className="mt-2">
-        <PostsByUserId id={data.id} />
+        <PostListByUserId id={data.id} />
       </div>
     </div>
   );
